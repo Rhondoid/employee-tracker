@@ -5,7 +5,7 @@ USE employees_db;
 
 CREATE TABLE department(
     id: INT PRIMARY KEY
-    name: VARCHAR(30) to hold department name
+    dept: VARCHAR(30) to hold department name
 )
 
 CREATE TABLE role(
@@ -13,7 +13,8 @@ CREATE TABLE role(
     title: VARCHAR(30) to hold role title
     salary: DECIMAL (14,2) to hold role salary
     department_id: INT
-to hold reference to department role belongs to)
+    to hold reference to department role belongs to
+    )
 
 CREATE TABLE employee(
     id: INT PRIMARY KEY
