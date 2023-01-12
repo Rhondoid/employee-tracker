@@ -5,7 +5,7 @@ This is an application to keep track of employees
 
 Developers frequently have to create interfaces that allow non-developers to easily view and interact with information stored in databases. These interfaces are called **content management systems (CMS)**. Your assignment this week is to build a command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and MySQL.
 
-Because this application won’t be deployed, you’ll also need to create a walkthrough video that demonstrates its functionality and all of the following acceptance criteria being met. You’ll need to submit a link to the video and add it to the README of your project.
+Because this application won’t be deployed, you’ll also need to create a walk through video that demonstrates its functionality and all of the following acceptance criteria being met. You’ll need to submit a link to the video and add it to the README of your project.
 
 ## User Story
 
@@ -63,13 +63,13 @@ As the image illustrates, your schema should contain the following three tables:
 
     * `id`: `INT PRIMARY KEY`
 
-    * `name`: `VARCHAR(30)` to hold department name
+    * `name`: `VAR CHAR (30)` to hold department name
 
 * `role`
 
     * `id`: `INT PRIMARY KEY`
 
-    * `title`: `VARCHAR(30)` to hold role title
+    * `title`: `var char (30)` to hold role title
 
     * `salary`: `DECIMAL` to hold role salary
 
@@ -79,9 +79,9 @@ As the image illustrates, your schema should contain the following three tables:
 
     * `id`: `INT PRIMARY KEY`
 
-    * `first_name`: `VARCHAR(30)` to hold employee first name
+    * `first_name`: `VAR CHAR(30)` to hold employee first name
 
-    * `last_name`: `VARCHAR(30)` to hold employee last name
+    * `last_name`: `VAR CHAR(30)` to hold employee last name
 
     * `role_id`: `INT` to hold reference to employee role
 
@@ -121,15 +121,15 @@ This Challenge is graded based on the following criteria:
 
 * Your GitHub repository containing your application code.
 
-### Walkthrough Video: 27%
+### Walk through Video: 27%
 
-* A walkthrough video that demonstrates the functionality of the employee tracker must be submitted, and a link to the video should be included in your README file.
+* A walk through video that demonstrates the functionality of the employee tracker must be submitted, and a link to the video should be included in your README file.
 
-* The walkthrough video must show all of the technical acceptance criteria being met.
+* The walk through video must show all of the technical acceptance criteria being met.
 
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
+* The walk through video must demonstrate how a user would invoke the application from the command line.
 
-* The walkthrough video must demonstrate a functional menu with the options outlined in the acceptance criteria.
+* The   video must demonstrate a functional menu with the options outlined in the acceptance criteria.
 
 ### Technical Acceptance Criteria: 40%
 
@@ -153,7 +153,7 @@ This Challenge is graded based on the following criteria:
 
 * Repository contains multiple descriptive commit messages.
 
-* Repository contains a high-quality README with description and a link to a walkthrough video.
+* Repository contains a high-quality README with description and a link to a walk through video.
 
 ### Application Quality 10%
 
@@ -177,6 +177,6 @@ Fulfilling any of the following can add up to 20 points to your grade. Note that
 
 You are required to submit BOTH of the following for review:
 
-* A walkthrough video demonstrating the functionality of the application.
+* A walk through video demonstrating the functionality of the application.
 
 * The URL of the GitHub repository, with a unique name and a README describing the project.
