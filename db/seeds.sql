@@ -1,7 +1,6 @@
 INSERT INTO department(id, dept)
 VALUES ("?"),
-    ("?");
-    
+    ("?"),   
 
 
 
@@ -9,7 +8,8 @@ INSERT INTO role(id, title, salary, dept_id)
 Values("?"),
     ("?"),
     ("?"),
-    ("?");
+    ("?"),
+    
 
 
 
