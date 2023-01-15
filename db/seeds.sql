@@ -1,22 +1,23 @@
-INSERT INTO department(id, dept)
-VALUES ("?"),
-    ("?"),   
+INSERT INTO department(dept)
+VALUES ("Finance"),
+    ("HR"),
+    ("Sales"),
+    ("Technical");  
 
 
 
-INSERT INTO role(id, title, salary, dept_id)
-Values("?"),
-    ("?"),
-    ("?"),
-    ("?"),
+INSERT INTO role(title, salary, department_id)
+Values("Manager", 80000, 1),
+    ("Sales", 60000, 2),
+    ("Marketing", 60000, 3),
+    ("Technical", 60000, 4);
     
 
 
 
 
-INSERT INTO employee(id, first_name, last_name, role, manager_id),
-VALUES ("?"),
-    ("?"),
-    ("?"),
-    ("?"),
-    ("?");
+INSERT INTO employee(first_name, last_name, role_id, manager_id)
+VALUES ("Sandra","Books",3, null),
+    ("John","Mitchell",1, null),
+    ("Barbara","Strong",2, 1);
+    

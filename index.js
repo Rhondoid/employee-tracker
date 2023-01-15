@@ -8,3 +8,22 @@
 // view all roles, view all employees, add a department, 
 // add a role, add an employee, and update an employee role
 
+const express = require('express');
+// Import and require mysql2
+const mysql = require('mysql2');
+const consoleTable = require('console.table');
+
+const promptChoices = {
+    viewAllEmployees: "View All Employees",
+    viewByDepartment: "View All Employees By Department",
+    viewByManager: "View All Employees By Manager",
+    viewAllRoles: "View All Roles",
+    addEmployee: "Add An Employee",
+    removeEmployee: "Remove An Employee",
+    updateRole: "Update Employee Role",
+    updateEmployeeManager: "Update Employee Manager",
+    removeDepartment: "Remove Department",
+    removeRole: "Remove Role",
+    exit: "Exit"
+
+};
