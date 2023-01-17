@@ -8,22 +8,32 @@
 // view all roles, view all employees, add a department, 
 // add a role, add an employee, and update an employee role
 
-const express = require('express');
-// Import and require mysql2
-const mysql = require('mysql2');
+const inquirer = require ('inquirer');
+const db = require ('./connection.js');
 const consoleTable = require('console.table');
+const mysql = require('mysql2');
 
-const promptChoices = {
-    viewAllEmployees: "View All Employees",
-    viewByDepartment: "View All Employees By Department",
-    viewByManager: "View All Employees By Manager",
-    viewAllRoles: "View All Roles",
-    addEmployee: "Add An Employee",
-    removeEmployee: "Remove An Employee",
-    updateRole: "Update Employee Role",
-    updateEmployeeManager: "Update Employee Manager",
-    removeDepartment: "Remove Department",
-    removeRole: "Remove Role",
-    exit: "Exit"
-
+const promptChoices = () => {
+    inquirer.prompt({
+        message: 'What do you want to do',
+    Type:'list',
+    choices:[
+    "View All Employees",
+    "View All Employees By Department",
+    "View All Employees By Manager",
+    "View All Roles",
+    "Add An Employee",
+    "Add a Role",
+    "Add a department",
+    "Update Employee Role",
+    "Update Employee Manager",
+    "Remove An Employee",
+    "Remove Department",
+    "Remove Role",
+    "Exit"
+    ]
+})
 };
+// .then(response =>
+
+// );
