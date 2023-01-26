@@ -1,4 +1,4 @@
-// Main index.js to connect with the DB
+// DB index.js to connect with the DB
 const connection = require ('./connection.js');
 
 class DB{
@@ -31,25 +31,5 @@ quit(){
 };
 }
 
-// // Query database
-// db.query("SELECT * FROM employees", function (err, results) {
-//   console.log(results);
-// });
-
-// db.query("SELECT * FROM department", function (err, results) {
-//   console.log(results);
-// });
-
-// db.query("SELECT * FROM role", function (err, results) {
-//   console.log(results);
-// });
-
-// db.query("INSERT INTO employees", function (err, results) {
-//   console.log(results);
-// });
-
-// db.query("UPDATE FROM employees", function (err, results) {
-//   console.log(results);
-// });
 
 module.exports = new DB (connection);
