@@ -82,27 +82,55 @@ function promptChoices() {
     }
   });
 }
-
+//([rows])=>{let employees = rows;console.table(employees);})
 function viewEmployees() {
-    db.findAllEmployees().then();
+  //methods, making a function for .then
+    db.findAllEmployees().then(([rows])=>{
+      let employees = rows;
+      console.table(employees);
+    })
+     .then(()=>promptChoices())
 };
 function viewDepartments() {
-    db.findAllDepartments().then();
+    db.findAllDepartments().then(([rows])=>{
+      let departments = rows;
+      console.table(departments);
+    })
+     .then(()=>promptChoices())
 };
 function viewRoles() {
-    db.findAllRoles().then();
+    db.findAllRoles().then(([rows])=>{
+      let roles = rows;
+      console.table(roles);
+    })
+     .then(()=>promptChoices())
 };
 function addEmployee() {
-    db.insertEmployee();
+    db.insertEmployee().then(([rows])=>{
+      let newEmployee = rows;
+      console.table(newEmployee);
+    })
+     .then(()=>promptChoices())
 };
 function addDepartment() {
-    db.insertDepartment();
+    db.insertDepartment().then(([rows])=>{
+      let newDepartment = rows;
+      console.table(newDepartment);
+    })
+     .then(()=>promptChoices())
 };
 function addRole() {
-    db.insertRole();
+    db.insertRole().then(([rows])=>{
+      let newRole = rows;
+      console.table(newRole);
+    })
+     .then(()=>promptChoices())
 };
 function updateEmployeeRole() {
-    db.updateEmployeeRole();
+    db.updateEmployeeRole().then(([rows])=>{
+      let updatedRole = rows;
+      console.table(updatedRole);
+    })
 };
 function quit() {
   process.exit();
