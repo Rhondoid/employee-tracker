@@ -136,4 +136,3 @@ function quit() {
   process.exit();
 }
 
-module.exports = new DB (connection);
