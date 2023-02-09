@@ -1,3 +1,2 @@
-modules_db
-.env
-DB_stores
+node_modules
+
