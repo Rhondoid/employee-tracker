@@ -12,6 +12,7 @@ const { prompt } = require("inquirer");
 const db = require("./db");
 const consoleTable = require("console.table");
 
+
 function promptChoices() {
   prompt([
     {
@@ -19,7 +20,7 @@ function promptChoices() {
       name: "choice",
       message: "What do you want to do?",
       choices: [
-        {
+        { 
           name: "View All Employees",
           value: "VIEW_EMPLOYEES",
         },
@@ -32,24 +33,29 @@ function promptChoices() {
           value: "VIEW_ROLES",
         },
         {
+          type: "input",
           name: "Add An Employee",
           value: "ADD_EMPLOYEE",
+          
         },
         {
+          type: "input",
           name: "Add a Role",
           value: "ADD_ROLE",
         },
         {
+          type: "input",
           name: "Add a department",
           value: "ADD_DEPARTMENT",
         },
         {
+          type: "input",
           name: "Update Employee Role",
           value: "UPDATE_EMPLOYEE_ROLE",
         },
         {
-          name: "Quit ",
-          value: "QUIT",
+          name: "Exit ",
+          value: "EXIT",
         },
       ],
     },
@@ -66,7 +72,9 @@ function promptChoices() {
         viewRoles();
         break;
       case "ADD_EMPLOYEE":
-        addEmployee();
+        addEmployee(
+          
+        )
         break;
       case "ADD_ROLE":
         addRole();
@@ -78,59 +86,60 @@ function promptChoices() {
         updateEmployeeRole();
         break;
       default:
-        quit();
+        exit();
     }
   });
 }
-//([rows])=>{let employees = rows;console.table(employees);})
+
 function viewEmployees() {
   //methods, making a function for .then
-    db.findAllEmployees().then(([rows])=>{
-      let employees = rows;
+    db.viewEmployees().then(([rows])=>{
+      let employees = [rows];
       console.table(employees);
     })
      .then(()=>promptChoices())
 };
 function viewDepartments() {
-    db.findAllDepartments().then(([rows])=>{
-      let departments = rows;
+    db.viewDepartments().then(([rows])=>{
+      let departments = [rows];
       console.table(departments);
     })
      .then(()=>promptChoices())
 };
 function viewRoles() {
-    db.findAllRoles().then(([rows])=>{
-      let roles = rows;
+    db.viewRoles().then(([rows])=>{
+      let roles = [rows];
       console.table(roles);
     })
      .then(()=>promptChoices())
 };
 function addEmployee() {
-    db.insertEmployee().then(([rows])=>{
-      let newEmployee = rows;
+    db.addEmployee().then(([rows])=>{
+      let newEmployee = [rows];
       console.table(newEmployee);
     })
      .then(()=>promptChoices())
 };
 function addDepartment() {
-    db.insertDepartment().then(([rows])=>{
-      let newDepartment = rows;
+    db.addDepartment().then(([rows])=>{
+      let newDepartment = [rows];
       console.table(newDepartment);
     })
      .then(()=>promptChoices())
 };
 function addRole() {
-    db.insertRole().then(([rows])=>{
-      let newRole = rows;
+    db.addRole().then(([rows])=>{
+      let newRole = [rows];
       console.table(newRole);
     })
      .then(()=>promptChoices())
 };
 function updateEmployeeRole() {
     db.updateEmployeeRole().then(([rows])=>{
-      let updatedRole = rows;
+      let updatedRole = [rows];
       console.table(updatedRole);
     })
+    .then(()=>promptChoices())
 };
 function quit() {
   process.exit();

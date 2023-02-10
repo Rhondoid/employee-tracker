@@ -1,21 +1,20 @@
-// DB index.js to connect with the DB
 const connection = require ('./connection.js');
 
 class DB{
 constructor(connection){
   this.connection = connection;
 }
-findAllEmployees(){
-  return this.connection.promise().query('SELECT * FROM employees');
+viewEmployees(){
+  return this.connection.promise().query('SELECT * FROM employee');
 };
 viewDepartments(){
-  return this.connection.promise().query('SELECT * FROM departments');
+  return this.connection.promise().query('SELECT * FROM department');
 };
 viewRoles(){
-  return this.connection.promise().query('SELECT * FROM roles');
+  return this.connection.promise().query('SELECT * FROM role');
 };
 addEmployees(){
-  return this.connection.promise().query('INSERT INTO employees');
+  return this.connection.promise().query('INSERT INTO employee');
 };
 addDepartment(){
   return this.connection.promise().query('INSERT INTO department');
@@ -26,9 +25,16 @@ addRole(){
 updateEmployeeRole(){
   return this.connection.promise().query('INSERT INTO role');
 };
-quit(){
-  process.exit();
-};
+}
+function quit() {
+  this.connection.end(function(err) {
+    if (err) {
+      console.error("Error closing database connection: " + err.message);
+    } else {
+      console.log("Database connection closed gracefully.");
+    }
+    process.exit();
+  });
 }
 
 
