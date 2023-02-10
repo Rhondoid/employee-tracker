@@ -14,6 +14,8 @@ You will need to initialize the database mysql with the source db/schema.sql, th
 Then enter node index.js in the terminal. 
 ![image](https://user-images.githubusercontent.com/110504360/218171988-bb09c984-a893-4291-b581-e58942ed4077.png)
 
+video
+https://drive.google.com/file/d/10oH6uaGWzePYOhnK1imKH4ZU3MOerIbC/view
 
 #License
 MIT
