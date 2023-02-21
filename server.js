@@ -12,6 +12,10 @@ const { prompt } = require("inquirer");
 const db = require("./db");
 const consoleTable = require("console.table");
 
+//function to call promptChoices and initiate questions
+function init(){
+  promptChoices();
+}
 
 function promptChoices() {
   prompt([
@@ -97,21 +101,21 @@ function viewEmployees() {
       let employees = [rows];
       console.table(employees);
     })
-     .then(()=>promptChoices())
+     .then(()=>init())
 };
 function viewDepartments() {
     db.viewDepartments().then(([rows])=>{
       let departments = [rows];
       console.table(departments);
     })
-     .then(()=>promptChoices())
+     .then(()=>init())
 };
 function viewRoles() {
     db.viewRoles().then(([rows])=>{
       let roles = [rows];
       console.table(roles);
     })
-     .then(()=>promptChoices())
+     .then(()=>init())
 };
 function addEmployee() {
     db.addEmployee().then(([rows])=>{
@@ -125,21 +129,21 @@ function addDepartment() {
       let newDepartment = [rows];
       console.table(newDepartment);
     })
-     .then(()=>promptChoices())
+     .then(()=>init())
 };
 function addRole() {
     db.addRole().then(([rows])=>{
       let newRole = [rows];
       console.table(newRole);
     })
-     .then(()=>promptChoices())
+     .then(()=>init())
 };
 function updateEmployeeRole() {
     db.updateEmployeeRole().then(([rows])=>{
       let updatedRole = [rows];
       console.table(updatedRole);
     })
-    .then(()=>promptChoices())
+    .then(()=>init())
 };
 function quit() {
   process.exit();

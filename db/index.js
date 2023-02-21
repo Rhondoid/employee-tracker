@@ -4,6 +4,8 @@ class DB{
 constructor(connection){
   this.connection = connection;
 }
+
+
 viewEmployees(){
   return this.connection.promise().query('SELECT * FROM employee');
 };
