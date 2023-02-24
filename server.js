@@ -114,7 +114,7 @@ function addEmployee() {
       let newEmployee = [rows];
       console.table(newEmployee);
     })
-    .then(() => promptChoices());
+    .then(() => init());
 }
 function addDepartment() {
   db.addDepartment()
