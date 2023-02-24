@@ -140,7 +140,7 @@ function updateEmployeeRole() {
     })
     .then(() => init());
 }
-function quit() {
+function exit() {
   this.connection.end(function (err) {
     if (err) {
       console.error("Error closing database connection: " + err.message);
@@ -150,3 +150,4 @@ function quit() {
     process.exit();
   });
 }
+init();
