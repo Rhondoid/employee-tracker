@@ -19,13 +19,13 @@ viewRoles(){
 addEmployee(){
   return this.connection.promise().query(
     'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)',
-    [employee.first_name, employee.last_name, employee.role_id, employee.manager_id]
+    ["", "", "", ""]
   );
 };
 addDepartment(){
   return this.connection.promise().query(
-    'INSERT INTO department (name) VALUES (?)',
-    [department.name]
+    'INSERT INTO department (name) VALUES ("accounting")',
+    [""]
   );
 };
 addRole(role){

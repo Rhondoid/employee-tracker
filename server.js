@@ -1,5 +1,5 @@
 //Main index to start app and prompt choices
-const { prompt } = require("inquirer");
+const { prompt: inquirerPrompt, default: inquirer } = require("inquirer");
 const db = require("./db");
 const consoleTable = require("console.table");
 
@@ -9,7 +9,7 @@ function init() {
 }
 
 function promptChoices() {
-  prompt([
+  inquirerPrompt([
     {
       type: "list",
       name: "choice",
@@ -109,7 +109,40 @@ function viewRoles() {
     .then(() => init());
 }
 function addEmployee() {
-  db.addEmployee()
+  inquirerPrompt([
+      {
+        type:'input',
+        message: 'What is the employees first name?',
+        name: 'firstName' 
+      },
+      {
+        type:'input',
+        message: 'What is the employees last name?',
+        name: 'lastName' 
+      },
+    
+      {
+        type: 'input',
+        name: 'roleId',
+        message: 'What is the employee\'s role ID?',
+        validate: function(value) {
+        var valid = !isNaN(parseInt(value));
+      return valid || 'Please enter a number';
+    },
+    filter: function(value) {
+      return parseInt(value);
+    } 
+      },
+      {
+        type:'input',
+        message: 'Who is the employees manager?',
+        name: 'managerName' 
+      }
+    ])
+    .then((answers) => {
+      const employeeName = answers.employeeName; 
+      return db.addEmployee(employeeName);
+    })
     .then(([rows]) => {
       let newEmployee = rows;
       console.table(newEmployee);
@@ -117,13 +150,24 @@ function addEmployee() {
     .then(() => init());
 }
 function addDepartment() {
-  db.addDepartment()
+  inquirerPrompt([
+      {
+        type:'input',
+        message: 'What is the department name?',
+        name: 'departmentName' 
+      }
+    ])
+    .then((answers) => {
+      const departmentName = answers.departmentName; 
+      return db.addDepartment(departmentName);
+    })
     .then(([rows]) => {
       let newDepartment = rows;
       console.table(newDepartment);
     })
     .then(() => init());
 }
+
 function addRole() {
   db.addRole()
     .then(([rows]) => {
