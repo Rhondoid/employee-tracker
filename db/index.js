@@ -1,5 +1,6 @@
 const connection = require ('./connection.js');
 
+
 class DB{
 constructor(connection){
   this.connection = connection;
@@ -15,14 +16,23 @@ viewDepartments(){
 viewRoles(){
   return this.connection.promise().query('SELECT * FROM role');
 };
-addEmployees(){
-  return this.connection.promise().query('INSERT INTO employee');
+addEmployee(){
+  return this.connection.promise().query(
+    'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)',
+    [employee.first_name, employee.last_name, employee.role_id, employee.manager_id]
+  );
 };
 addDepartment(){
-  return this.connection.promise().query('INSERT INTO department');
+  return this.connection.promise().query(
+    'INSERT INTO department (name) VALUES (?)',
+    [department.name]
+  );
 };
-addRole(){
-  return this.connection.promise().query('INSERT INTO role');
+addRole(role){
+  return this.connection.promise().query(
+    'INSERT INTO role (title,salary) VALUES (?)',
+  [role.title, role.salary]
+  );
 };
 updateEmployeeRole(){
   return this.connection.promise().query('INSERT INTO role');

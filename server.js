@@ -109,9 +109,7 @@ function viewRoles() {
     .then(() => init());
 }
 function addEmployee() {
-  db.addEmployee({
-    
-  })
+  db.addEmployee()
     .then(([rows]) => {
       let newEmployee = rows;
       console.table(newEmployee);
@@ -137,7 +135,7 @@ function addRole() {
 function updateEmployeeRole() {
   db.updateEmployeeRole()
     .then(([rows]) => {
-      let updatedRole = [rows];
+      let updatedRole = rows;
       console.table(updatedRole);
     })
     .then(() => init());
