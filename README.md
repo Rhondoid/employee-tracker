@@ -15,7 +15,17 @@ Then enter node index.js in the terminal.
 ![image](https://user-images.githubusercontent.com/110504360/218171988-bb09c984-a893-4291-b581-e58942ed4077.png)
 
 video
-https://drive.google.com/file/d/10oH6uaGWzePYOhnK1imKH4ZU3MOerIbC/view
+https://app.castify.com/view/dc6e620a-b692-4b44-8627-1194562864d8
+
+![image](https://user-images.githubusercontent.com/110504360/221383598-d12f585d-8200-4a12-b72f-a02e1964266d.png)
+
+![image](https://user-images.githubusercontent.com/110504360/221383612-24ec0371-cd72-4ec0-8a2b-802482499ef7.png)
+
+![image](https://user-images.githubusercontent.com/110504360/221383683-547df4d9-229a-46de-81ea-3233496deb66.png)
+
+
+
+
 
 #License
 MIT
