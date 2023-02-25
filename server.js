@@ -29,17 +29,17 @@ function promptChoices() {
         },
         {
           type: "input",
-          name: "Add An Employee",
+          name: "Add Employee",
           value: "ADD_EMPLOYEE",
         },
         {
           type: "input",
-          name: "Add a Role",
+          name: "Add Role",
           value: "ADD_ROLE",
         },
         {
           type: "input",
-          name: "Add a department",
+          name: "Add department",
           value: "ADD_DEPARTMENT",
         },
         {
@@ -110,38 +110,48 @@ function viewRoles() {
 }
 function addEmployee() {
   inquirerPrompt([
-      {
-        type:'input',
-        message: 'What is the employees first name?',
-        name: 'firstName' 
-      },
-      {
-        type:'input',
-        message: 'What is the employees last name?',
-        name: 'lastName' 
-      },
-    
-      {
-        type: 'input',
-        name: 'roleId',
-        message: 'What is the employee\'s role ID?',
-        validate: function(value) {
-        var valid = !isNaN(parseInt(value));
-      return valid || 'Please enter a number';
+    {
+      type: "input",
+      message: "What is the employees first name?",
+      name: "firstName",
     },
-    filter: function(value) {
-      return parseInt(value);
-    } 
+    {
+      type: "input",
+      message: "What is the employees last name?",
+      name: "lastName",
+    },
+    {
+      type: "input",
+      name: "roleId",
+      message: "What is the employee's role?",
+      validate: function (role_id) {
+        var valid = !isNaN(parseInt(role_id));
+        return valid || "Please enter a number";
       },
-      {
-        type:'input',
-        message: 'Who is the employees manager?',
-        name: 'managerName' 
-      }
-    ])
+      filter: function (role_id) {
+        return parseInt(role_id);
+      },
+    },
+    {
+      type: "input",
+      name: "managerID",
+      message: "Who is the employee's manager?",
+      validate: function (manager_id) {
+        var valid = !isNaN(parseInt(manager_id));
+        return valid || "Please enter a number";
+      },
+      filter: function (manager_id) {
+        return parseInt(manager_id);
+      },
+    },
+  ])
     .then((answers) => {
-      const employeeName = answers.employeeName; 
-      return db.addEmployee(employeeName);
+      return db.addEmployee(
+        answers.firstName,
+        answers.lastName,
+        answers.roleId,
+        answers.managerID
+      );
     })
     .then(([rows]) => {
       let newEmployee = rows;
@@ -149,16 +159,17 @@ function addEmployee() {
     })
     .then(() => init());
 }
+
 function addDepartment() {
   inquirerPrompt([
-      {
-        type:'input',
-        message: 'What is the department name?',
-        name: 'departmentName' 
-      }
-    ])
+    {
+      type: "input",
+      message: "What is the department name?",
+      name: "departmentName",
+    },
+  ])
     .then((answers) => {
-      const departmentName = answers.departmentName; 
+      const departmentName = answers.departmentName;
       return db.addDepartment(departmentName);
     })
     .then(([rows]) => {
@@ -169,18 +180,36 @@ function addDepartment() {
 }
 
 function addRole() {
-  db.addRole()
+  inquirerPrompt([
+    {
+      type: "input",
+      message: "What is the role title?",
+      name: "title",
+    },
+    {
+      type: "input",
+      message: "What is the role salary?",
+      name: "salary",
+    },
+    {
+      type: "input",
+      name: "department",
+      message: "What is the department?",
+      validate: function (department_id) {
+        var valid = !isNaN(parseInt(department_id));
+        return valid || "Please enter a number";
+      },
+      filter: function (department_id) {
+        return parseInt(department_id);
+      },
+    },
+  ])
+    .then((answers) => {
+      return db.addRole(answers.title, answers.salary, answers.department);
+    })
     .then(([rows]) => {
       let newRole = rows;
       console.table(newRole);
-    })
-    .then(() => init());
-}
-function updateEmployeeRole() {
-  db.updateEmployeeRole()
-    .then(([rows]) => {
-      let updatedRole = rows;
-      console.table(updatedRole);
     })
     .then(() => init());
 }

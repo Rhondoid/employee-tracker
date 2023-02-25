@@ -16,22 +16,22 @@ viewDepartments(){
 viewRoles(){
   return this.connection.promise().query('SELECT * FROM role');
 };
-addEmployee(){
+addEmployee(first,last,role,manager){
   return this.connection.promise().query(
     'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)',
-    ["", "", "", ""]
+    [first,last,role,manager]
   );
 };
-addDepartment(){
+addDepartment(department){
   return this.connection.promise().query(
-    'INSERT INTO department (name) VALUES ("accounting")',
-    [""]
+    'INSERT INTO department (name) VALUES (?)',
+    [department]
   );
 };
-addRole(role){
+addRole(title, salary, department){
   return this.connection.promise().query(
-    'INSERT INTO role (title,salary) VALUES (?)',
-  [role.title, role.salary]
+    'INSERT INTO role (title, salary, department_id) VALUES (?)',
+  [title, salary, department]
   );
 };
 updateEmployeeRole(){
