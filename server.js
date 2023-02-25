@@ -87,7 +87,7 @@ function viewEmployees() {
   //methods, making a function for .then
   db.viewEmployees()
     .then(([rows]) => {
-      let employees = [rows];
+      let employees = rows;
       console.table(employees);
     })
     .then(() => init());
@@ -95,7 +95,7 @@ function viewEmployees() {
 function viewDepartments() {
   db.viewDepartments()
     .then(([rows]) => {
-      let departments = [rows];
+      let departments = rows;
       console.table(departments);
     })
     .then(() => init());
@@ -103,15 +103,17 @@ function viewDepartments() {
 function viewRoles() {
   db.viewRoles()
     .then(([rows]) => {
-      let roles = [rows];
+      let roles = rows;
       console.table(roles);
     })
     .then(() => init());
 }
 function addEmployee() {
-  db.addEmployee()
+  db.addEmployee({
+    
+  })
     .then(([rows]) => {
-      let newEmployee = [rows];
+      let newEmployee = rows;
       console.table(newEmployee);
     })
     .then(() => init());
@@ -119,7 +121,7 @@ function addEmployee() {
 function addDepartment() {
   db.addDepartment()
     .then(([rows]) => {
-      let newDepartment = [rows];
+      let newDepartment = rows;
       console.table(newDepartment);
     })
     .then(() => init());
@@ -127,7 +129,7 @@ function addDepartment() {
 function addRole() {
   db.addRole()
     .then(([rows]) => {
-      let newRole = [rows];
+      let newRole = rows;
       console.table(newRole);
     })
     .then(() => init());

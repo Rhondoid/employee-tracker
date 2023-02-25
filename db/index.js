@@ -28,7 +28,7 @@ updateEmployeeRole(){
   return this.connection.promise().query('INSERT INTO role');
 };
 }
-function quit() {
+function exit() {
   this.connection.end(function(err) {
     if (err) {
       console.error("Error closing database connection: " + err.message);
