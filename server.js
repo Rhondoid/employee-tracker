@@ -203,6 +203,7 @@ function addRole() {
         return parseInt(department_id);
       },
     },
+    
   ])
     .then((answers) => {
       return db.addRole(answers.title, answers.salary, answers.department);
@@ -213,6 +214,22 @@ function addRole() {
     })
     .then(() => init());
 }
+updateEmployeeRole(employee_id, role_id){
+  inquirerPrompt([
+    {
+      type: "input",
+      message: "What is the role?",
+      name: "role",
+    },
+  ]);
+}
+  .then(result => {
+    console.log(`Updated ${result.role} rows`);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
 function exit() {
   this.connection.end(function (err) {
     if (err) {
